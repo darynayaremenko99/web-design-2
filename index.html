@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second laboratory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Poll</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="Information.html">Information</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="profile.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup.html">Sign up</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <main id="main">
+
+        <!-- <div id="pollBlock" class="box coral-color center-box col-md-6">
+          <h2 class="centered">Create the poll</h2><br>
+          <label for="question">Question</label><br>
+          <input id="question" type="text">
+          <br><br>
+          <label for="av1">Answer variant 1</label><br>
+          <input id="av1" type="text">
+          <br><br>
+          <label for="av2">Answer variant 2</label><br>
+          <input id="av2" type="text">
+          <br><br>
+          <label for="av3">Answer variant 3</label><br>
+          <input id="av3" type="text"><br><br>
+          <button id="savePoll" class="btn btn-success">Save</button>
+        </div> -->
+
+          <div class="row flex main-poll-content">
+            <button id="createPollButton" class="col-md-4">
+                Create poll
+            </button>
+            <button id="passPollButton" class="col-md-4">
+                Pass the poll
+            </button>
+          </div>
+
+          <!-- <div class="box coral-color center-box col-md-3">
+            <h4 style="text-align: center;">Question</h4>
+            <br>
+            <div class="answer-block">
+              <input class="radio" type="radio" id="aw1" name="gender" value="male">
+              <label class="answer" for="male">Male</label>
+            </div>
+            <div class="answer-block">
+              <input class="radio" type="radio" id="aw2" name="gender" value="male">
+              <label class="answer" for="male">Male</label>
+            </div>
+            <div class="answer-block">
+              <input class="radio" type="radio" id="aw3" name="gender" value="male">
+              <label class="answer" for="male">Male</label>
+            </div>
+            <br>
+            <button  class="btn btn-success">Save</button>
+          </div> -->
+
+          <!-- <div class="box coral-color center-box col-md-6">
+            <div class="row">  
+              <div class="box white-color center-box col-md-10">
+              
+              </div>
+            </div>
+          </div> -->
+      </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script type="module" src="js/controller/controller.js"></script>    
+<script type="module">
+  import Controller from './js/controller/controller.js';
+  let controller = new Controller();
+</script>
+</html>
