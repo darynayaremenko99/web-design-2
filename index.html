@@ -7,6 +7,8 @@
     <title>Second laboratory</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
@@ -39,58 +41,69 @@
 
       <main id="main">
 
-        <!-- <div id="pollBlock" class="box coral-color center-box col-md-6">
+        <!-- create poll block -->
+        <div v-if="create" class="box coral-color center-box col-md-6">
           <h2 class="centered">Create the poll</h2><br>
           <label for="question">Question</label><br>
-          <input id="question" type="text">
+          <input v-model="poll.question" type="text">
           <br><br>
           <label for="av1">Answer variant 1</label><br>
-          <input id="av1" type="text">
+          <input v-model="poll.answer1" name="av1" type="text">
           <br><br>
           <label for="av2">Answer variant 2</label><br>
-          <input id="av2" type="text">
+          <input v-model="poll.answer2" name="av2" type="text">
           <br><br>
           <label for="av3">Answer variant 3</label><br>
-          <input id="av3" type="text"><br><br>
-          <button id="savePoll" class="btn btn-success">Save</button>
-        </div> -->
+          <input v-model="poll.answer3" name="av3" type="text"><br><br>
+          <button v-on:click="saveCreateAction" class="btn btn-success">Save</button>
+        </div>
 
-          <div class="row flex main-poll-content">
-            <button id="createPollButton" class="col-md-4">
-                Create poll
-            </button>
-            <button id="passPollButton" class="col-md-4">
-                Pass the poll
-            </button>
+        <!-- choose action block -->
+        <div v-if="choose" class="row flex main-poll-content">
+          <button v-on:click="createAction" id="createPollButton" class="col-md-4">
+              Create poll
+          </button>
+          <button v-on:click="passAction" class="col-md-4">
+              Pass the poll
+          </button>
+        </div>
+
+        <!-- Answer the question block -->
+        <div v-if="answer" class="box coral-color center-box col-md-3">
+          <h4 style="text-align: center;">{{poll.question}}</h4>
+          <br>
+          <div class="answer-block">
+            <input class="radio" type="radio" id="aw1" name="gender" value="male">
+            <label  class="answer" for="male">{{poll.answer1}}</label>
           </div>
+          <div class="answer-block">
+            <input class="radio" type="radio" id="aw2" name="gender" value="male">
+            <label  for="male">{{poll.answer2}}</label>
+          </div>
+          <div class="answer-block">
+            <input class="radio" type="radio" id="aw3" name="gender" value="male">
+            <label class="poll.answer2" for="male">{{poll.answer3}}</label>
+          </div>
+          <br>
+          <button v-on:click="savePassAction" class="btn btn-success">Save</button>
+        </div>
 
-          <!-- <div class="box coral-color center-box col-md-3">
-            <h4 style="text-align: center;">Question</h4>
-            <br>
-            <div class="answer-block">
-              <input class="radio" type="radio" id="aw1" name="gender" value="male">
-              <label class="answer" for="male">Male</label>
+        <!-- list of question block -->
+        <div v-if="list" class="box coral-color center-box col-md-6">
+          <div v-for="poll in pollList" class="row">  
+            <div v-on:click="passPollQuestion(poll.question)" class="box white-color center-box col-md-10">
+              {{poll.question}}
             </div>
-            <div class="answer-block">
-              <input class="radio" type="radio" id="aw2" name="gender" value="male">
-              <label class="answer" for="male">Male</label>
-            </div>
-            <div class="answer-block">
-              <input class="radio" type="radio" id="aw3" name="gender" value="male">
-              <label class="answer" for="male">Male</label>
-            </div>
-            <br>
-            <button  class="btn btn-success">Save</button>
-          </div> -->
+          </div>
+        </div>
 
-          <!-- <div class="box coral-color center-box col-md-6">
-            <div class="row">  
-              <div class="box white-color center-box col-md-10">
-              
-              </div>
-            </div>
-          </div> -->
+        <!-- saved -->
+        <div v-if="saved" class="box green-color  center-box col-md-6" >
+          <h2 style="text-align:center;"> Saved </h2> 
+        </div>
+
       </main>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script type="module" src="js/controller/controller.js"></script>    
